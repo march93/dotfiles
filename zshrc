@@ -7,8 +7,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="gentoo"
+ZSH_THEME="gozilla"
+# awesome: gozilla, theunraveler, terminalparty, wedisagree
+# interesting: fwalch, kolo, gentoo, nanotech, sorin, robbyrussell
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -53,7 +54,8 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails zsh-completions)
+# plugins=(git rails zsh-completions)
+plugins=(git rails vi-mode common-aliases ember-cli)
 
 autoload -U compinit && compinit
 
@@ -91,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Warning - the below path includes a potential security hazard in that it
 # includes './bin'
-export PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./bin
+export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:bin:/Applications/Postgres.app/Contents/Versions/latest/bin:./bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"
 
 # Use rbenv to manage ruby versions
 eval "$(rbenv init -)"
