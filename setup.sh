@@ -1,7 +1,7 @@
 brew install cask rbenv-gemset
 
 # Only installing the things that my current job's `sh` file doesn't install for me
-brew cask install karabiner iterm2 trailer gitkraken atom
+brew cask install karabiner iterm2 trailer gitkraken atom spotify firefox
 
 touch ~/.gitconfig.user
 mkdir ~/Rails ~/Ember ~/Projects
