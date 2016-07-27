@@ -14,5 +14,7 @@ touch ~/.system_aliases
 ln -s ~/.dotfiles/aliases ~/.aliases
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 
+mkdir ~/.atom
 rm -rf ~/.atom/keymap.cson
 ln -s ~/.dotfiles/atom/keymap.cson ~/.atom/keymap.cson
+apm install vim-mode file-icons block-comment aligner pigments tool-bar tool-bar-main selector-to-tag minimap minimap-bookmarks minimap-autohide hbs-beautify merge-conflicts file-icon-supplement docblockr

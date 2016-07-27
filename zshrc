@@ -90,6 +90,10 @@ source $ZSH/oh-my-zsh.sh
 
 # import alias file
 . $HOME/.aliases
+. $HOME/.system_aliases
+
+#https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
+HOMEBREW_NO_ANALYTICS=1
 
 # Warning - the below path includes a potential security hazard in that it
 # includes './bin'
