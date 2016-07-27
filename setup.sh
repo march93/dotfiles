@@ -13,6 +13,8 @@ ln -s ~/.dotfiles/git/gitignore ~/.gitignore
 touch ~/.system_aliases
 ln -s ~/.dotfiles/aliases ~/.aliases
 ln -s ~/.dotfiles/zshrc ~/.zshrc
+rm -rf ~/Library/Application\ Support/Karabiner/private.xml
+ln -s ~/.dotfiles/karabiner/private.xml ~/Library/Application\ Support/Karabiner/private.xml
 
 mkdir ~/.atom
 rm -rf ~/.atom/keymap.cson
