@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Swap Fn for ESC</name>
+    <identifier>private.swap_fn_and_esc</identifier>
+    <autogen>__KeyToKey__ KeyCode::FN, KeyCode::ESCAPE</autogen>
+    <autogen>__KeyToKey__ KeyCode::ESCAPE, KeyCode::FN</autogen>
+  </item>
+</root>
