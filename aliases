@@ -5,9 +5,12 @@ alias ethip="ipconfig getifaddr en0"
 alias wifiip="ipconfig getifaddr en1"
 
 alias hide-files="defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder"
+alias make-dock-space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 alias show-files="defaults write com.apple.Finder AppleShowAllFiles YES; killall Finder"
 alias zedit="vim ~/.zshrc"
 alias zrefresh="source ~/.zshrc"
+alias powr="lunchy stop pow; lunchy start pow"
+alias fdev="foreman start"
 
 alias mvlc="open -na /Applications/VLC.app"
 
