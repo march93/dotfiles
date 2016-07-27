@@ -9,6 +9,8 @@ alias make-dock-space="defaults write com.apple.dock persistent-apps -array-add 
 alias show-files="defaults write com.apple.Finder AppleShowAllFiles YES; killall Finder"
 alias zedit="vim ~/.zshrc"
 alias zrefresh="source ~/.zshrc"
+alias zalias="vim ~/.aliases"
+alias salias="vim ~/.system_aliases"
 alias powr="lunchy stop pow; lunchy start pow"
 alias fdev="foreman start"
 
