@@ -11,11 +11,12 @@ alias zrefresh="source ~/.zshrc"
 
 alias mvlc="open -na /Applications/VLC.app"
 
-alias -- -rails="cd ~/Rails"
 alias -- -ember="cd ~/Ember"
 alias -- -projects="cd ~/Projects"
+alias -- -rails="cd ~/Rails"
 
-alias -- -mystics-cli="cd ~/Ember/mystics-cli"
-alias -- -app="cd ~/Ember/mystics-cli"
-alias -- -mystics-api="cd ~/Rails/mystics-api"
 alias -- -api="cd ~/Rails/mystics-api"
+alias -- -app="cd ~/Ember/mystics-cli"
+alias -- -bjm="cd ~/Ember/bjm-portfolio"
+alias -- -mystics-api="cd ~/Rails/mystics-api"
+alias -- -mystics-cli="cd ~/Ember/mystics-cli"
