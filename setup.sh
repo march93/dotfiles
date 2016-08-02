@@ -19,4 +19,4 @@ ln -s ~/.dotfiles/karabiner/private.xml ~/Library/Application\ Support/Karabiner
 mkdir ~/.atom
 rm -rf ~/.atom/keymap.cson
 ln -s ~/.dotfiles/atom/keymap.cson ~/.atom/keymap.cson
-apm install vim-mode file-icons block-comment aligner pigments tool-bar tool-bar-main selector-to-tag minimap minimap-bookmarks minimap-autohide hbs-beautify merge-conflicts file-icon-supplement docblockr
+apm install vim-mode file-icons block-comment aligner pigments tool-bar tool-bar-main selector-to-tag minimap minimap-bookmarks minimap-autohide hbs-beautify merge-conflicts file-icon-supplement docblockr sort-lines
