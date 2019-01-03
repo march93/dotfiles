@@ -1,4 +1,3 @@
-alias b='bundle exec'
 alias ll='tree --dirsfirst -ChFupDaLg 1'
 alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
 alias ethip="ipconfig getifaddr en0"
@@ -7,21 +6,12 @@ alias wifiip="ipconfig getifaddr en1"
 alias hide-files="defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder"
 alias make-dock-space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 alias show-files="defaults write com.apple.Finder AppleShowAllFiles YES; killall Finder"
-alias zedit="vim ~/.zshrc"
-alias zrefresh="source ~/.zshrc"
-alias zalias="vim ~/.aliases"
-alias salias="vim ~/.system_aliases"
-alias powr="lunchy stop pow; lunchy start pow"
+
+alias edit-zsh="vim ~/.zshrc"
+alias re-source="source ~/.zshrc"
+alias edit-aliases="vim ~/.aliases"
+alias edit-system="vim ~/.system_aliases"
+
 alias fdev="foreman start"
 
-alias mvlc="open -na /Applications/VLC.app"
-
-alias -- -ember="cd ~/Ember"
-alias -- -projects="cd ~/Projects"
-alias -- -rails="cd ~/Rails"
-
-alias -- -api="cd ~/Rails/mystics-api"
-alias -- -app="cd ~/Ember/mystics-cli"
-alias -- -bjm="cd ~/Ember/bjm-portfolio"
-alias -- -mystics-api="cd ~/Rails/mystics-api"
-alias -- -mystics-cli="cd ~/Ember/mystics-cli"
+alias open-vlc="open -na /Applications/VLC.app"
