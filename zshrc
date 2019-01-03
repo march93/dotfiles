@@ -11,7 +11,6 @@ ZSH_THEME="gozilla"
 # awesome: gozilla, theunraveler, terminalparty, wedisagree
 # interesting: fwalch, kolo, gentoo, nanotech, sorin, robbyrussell
 
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -55,13 +54,21 @@ DISABLE_AUTO_UPDATE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git rails zsh-completions)
-plugins=(git rails vi-mode common-aliases ember-cli)
+plugins=(
+  git 
+  vi-mode
+  bundler
+)
 
 autoload -U compinit && compinit
 
 # User configuration
 
 source $ZSH/oh-my-zsh.sh
+
+export FZF_DEFAULT_COMMAND='fd --type file'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export EDITOR='vim'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
