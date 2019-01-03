@@ -1,145 +1,109 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-" =============== Pathogen Initialization ===============
-" This loads all the plugins in ~/.vim/bundle
-" Use tpope's pathogen plugin to manage all other plugins
-
-  runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
-  call pathogen#infect()
-  call pathogen#helptags()
-
-" ================ General Config ====================
-
-colorscheme grb256
-set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-"set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
-
-"turn on syntax highlighting
+execute pathogen#infect()
 syntax on
-
-" ================ Search Settings  =================
-
-set incsearch        "Find the next match as we type the search
-set hlsearch         "Hilight searches by default
-set viminfo='100,f1  "Save up to 100 marks, enable capital marks
-"Silence search highlights
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
-" ===== Command-T Settings ==================
-
-let g:CommandTWildIgnore=&wildignore . ",public/assets/*,vendor/bundle/*,coverage/assets/*,*.png,*.gif,*.ico"
-
-" ================ Turn Off Swap Files ==============
-
-set noswapfile
-set nobackup
-set nowb
-
-" ================ Persistent Undo ==================
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
-
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=~/.vim/backups
-set undofile
-
-" ================ Indentation ======================
-
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-
+filetype on
 filetype plugin on
 filetype indent on
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+" Initialize vim plugins
+call plug#begin('~/.vim/plugged')
 
-set nowrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'thaerkh/vim-indentguides'
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'k0kubun/vim-open-github'
 
-" ================ Folds ============================
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'wincent/terminus'
+Plug 'thaerkh/vim-workspace'
+Plug 'ajh17/VimCompletesMe'
+Plug 'gangleri/vim-toggle-relative-line-numbers'
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-fugitive'
 
-" ================ Completion =======================
+Plug 'JulesWang/css.vim'
+Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
+" Plug 'shmargum/vim-sass-colors' blows shit up all the time
 
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+Plug 'heavenshell/vim-jsdoc'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'w0rp/ale'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mattn/emmet-vim'
 
-" ================ Scrolling ========================
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+call plug#end()
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+" START NERDTree stuff
+map <C-\> :NERDTreeToggle<CR>
+nmap ,r :NERDTreeFind<CR> 
+nmap ,t :NERDTreeToggle<CR>
+" END NERDTree stuff
 
-" =========== Buffer Management =====================
-" see umimpaired.vim ( https://github.com/tpope/vim-unimpaired )
+nnoremap <leader>s :ToggleWorkspace<CR>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" change panels
+nmap <leader>j <C-W>j<CR>
+nmap <leader>k <C-W>k<CR>
+nmap <leader>h <C-W>h<CR>
+nmap <leader>l <C-W>l<CR>
+
+" change tabs
+nmap ,j :tabr<CR>
+nmap ,k :tabl<CR>
+nmap ,h :tabp<CR>
+nmap ,l :tabn<CR>
+
+nmap ,f :FZF<CR>
+nmap ,n :ToggleNumRel<CR>
+
+" Toggle workspace
+nnoremap <leader>s :ToggleWorkspace<CR>
+let g:workspace_session_directory=$HOME.'/.vim/sessions'
+
+let NERDTreeNodeDelimiter = "\u00A0"
+let g:user_emmet_leader_key=','
+let g:mustache_abbreviations=1
+let g:airline#extensions#tabline#formatter='unique_tail_improved'
+
+let g:javascript_plugin_jsdoc = 1
+let g:jsdoc_underscore_private=1
+let g:jsdoc_enable_es6=1
+let g:jsdoc_access_descriptions=2
+let g:jsdoc_allow_input_prompt=1
+
+:set number relativenumber
+:set mouse=a
+:set nolist
+:set listchars=tab:»·,trail:·
+:set cursorline
+hi CursorLine cterm=NONE ctermbg=44 ctermfg=black
+:set visualbell " no sounds
+:set autoread " reload files changed outside of vim
+:set scrolloff=10 " adds a buffer zone to the lines revealed when navigating the page edges
+:set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+:set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set splitright "splits windows to right by default
+set nobackup
 
-" ============== NerdTree ================
-"open a NERDTree automatically when vim starts up if no files were specified
-autocmd vimenter * if !argc() | NERDTree | endif
-
-"Close NerdTree when a file is selected
-let NERDTreeQuitOnOpen=1
-:nmap <Leader>e :NERDTreeToggle<CR>
-:nmap <Leader>f :NERDTreeFind<CR>
-
-"close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-
-" ============ Misc =================
-"delete trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
-:nmap <Leader>g :GitGutterToggle<CR>
-
-"us Ag instead of ack -> https://github.com/ggreer/the_silver_searcher
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" spell checking and automatic wrapping at 72 columns to commit messages.
-autocmd Filetype gitcommit setlocal spell textwidth=72
-
-"set ex movement to be like emacs
-:cnoremap <C-a>  <Home>
-:cnoremap <C-b>  <Left>
-:cnoremap <C-f>  <Right>
-:cnoremap <C-d>  <Delete>
-:cnoremap <M-b>  <S-Left>
-:cnoremap <M-f>  <S-Right>
-:cnoremap <M-d>  <S-right><Delete>
-:cnoremap <Esc>b <S-Left>
-:cnoremap <Esc>f <S-Right>
-:cnoremap <Esc>d <S-right><Delete>
-:cnoremap <C-g>  <C-c>
+" Tab configuration
+set shiftwidth=2
+set softtabstop=2
+set expandtab
