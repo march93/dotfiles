@@ -8,7 +8,7 @@ filetype indent on
 call plug#begin('~/.vim/plugged')
 
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
@@ -19,10 +19,12 @@ Plug 'k0kubun/vim-open-github'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'wincent/terminus'
 Plug 'thaerkh/vim-workspace'
 Plug 'ajh17/VimCompletesMe'
 Plug 'gangleri/vim-toggle-relative-line-numbers'
+Plug 'MattesGroeger/vim-bookmarks'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -54,34 +56,41 @@ nmap ,t :NERDTreeToggle<CR>
 " END NERDTree stuff
 
 nnoremap <leader>s :ToggleWorkspace<CR>
+
+" change panels
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" change panels
-nmap <leader>j <C-W>j<CR>
-nmap <leader>k <C-W>k<CR>
-nmap <leader>h <C-W>h<CR>
-nmap <leader>l <C-W>l<CR>
-
 " change tabs
-nmap ,j :tabr<CR>
-nmap ,k :tabl<CR>
-nmap ,h :tabp<CR>
-nmap ,l :tabn<CR>
+nmap <Space>j :tabr<CR>
+nmap <Space>k :tabl<CR>
+nmap <Space>h :tabp<CR>
+nmap <Space>l :tabn<CR>
 
 nmap ,f :FZF<CR>
-nmap ,n :ToggleNumRel<CR>
+
+" Toggles between relative and absolute line numbers
+nmap ,n :ToggleNumRel<CR> 
 
 " Toggle workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
 let g:workspace_session_directory=$HOME.'/.vim/sessions'
 
 let NERDTreeNodeDelimiter = "\u00A0"
+let NERDTreeShowHidden=1
 let g:user_emmet_leader_key=','
 let g:mustache_abbreviations=1
 let g:airline#extensions#tabline#formatter='unique_tail_improved'
+
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
+  map <Space>f :Ack!<Space>--smart-case<Space>
+endif
+
+nmap <Space>p "*p<CR> " Pastes the system clipboard into vim
+vmap <Space>c "*y<CR> " Copies selected text to the system clipboard from vim
 
 let g:javascript_plugin_jsdoc = 1
 let g:jsdoc_underscore_private=1
@@ -89,21 +98,22 @@ let g:jsdoc_enable_es6=1
 let g:jsdoc_access_descriptions=2
 let g:jsdoc_allow_input_prompt=1
 
-:set number relativenumber
-:set mouse=a
-:set nolist
-:set listchars=tab:»·,trail:·
-:set cursorline
+set number relativenumber
+set mouse=a " gives us happy mouse scrolling and clicking
+set nolist
+set listchars=tab:»·,trail:·
+set cursorline
 hi CursorLine cterm=NONE ctermbg=44 ctermfg=black
-:set visualbell " no sounds
-:set autoread " reload files changed outside of vim
-:set scrolloff=10 " adds a buffer zone to the lines revealed when navigating the page edges
-:set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-:set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set visualbell " no sounds
+set autoread " reload files changed outside of vim
 set splitright "splits windows to right by default
+set scrolloff=10 " adds a buffer zone to the lines revealed when navigating the page edges
+set backupdir=~/.vim/tmp/backups//
+set directory=~/.vim/tmp/swp//
 set nobackup
 
 " Tab configuration
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set backspace=2
