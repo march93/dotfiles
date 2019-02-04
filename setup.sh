@@ -1,5 +1,11 @@
 # Install brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [[ $(command -v brew) == "" ]]; then
+    echo "Installing Hombrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo "Updating Homebrew"
+    brew update
+fi
 brew tap heroku/brew
 brew install cask rbenv-gemset heroku git
 brew cask install iterm2 gitkraken spotify firefox google-chrome videostream
