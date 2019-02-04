@@ -6,21 +6,17 @@ else
     echo "Updating Homebrew"
     brew update
 fi
-brew tap heroku/brew
-brew install cask rbenv-gemset heroku git
-brew cask install iterm2 gitkraken spotify firefox google-chrome videostream
 
+# Make sure essential directories and files exist
 mkdir ~/Projects
 touch ~/.gitconfig.user
 touch ~/.system_aliases
+mkdir -p ~/.vim/tmp/backups                                                                                                                         ✭
+mkdir -p ~/.vim/tmp/swp
 
 # Setup aliases to dotfiles
 if [ ! -f ~/.gitconfig ]; then
   ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
-fi
-
-if [ ! -f ~/.aliases ]; then
-  ln -s ~/dotfiles/aliases ~/.aliases
 fi
 
 if [ ! -f ~/.zshrc ]; then
@@ -34,3 +30,8 @@ fi
 if [ ! -f ~/.vimrc ]; then
   ln -s ~/dotfiles/vimrc ~/.vimrc
 fi
+
+# Install dependencies
+brew tap heroku/brew
+brew install cask rbenv-gemset heroku git
+brew cask install iterm2 gitkraken spotify firefox google-chrome videostream

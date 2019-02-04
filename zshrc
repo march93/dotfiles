@@ -81,7 +81,7 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # import alias file
-. $HOME/.aliases
+. $HOME/dotfiles/aliases
 . $HOME/.system_aliases
 
 #https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
