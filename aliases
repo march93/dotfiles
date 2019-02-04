@@ -1,17 +1,21 @@
-alias ll='tree --dirsfirst -ChFupDaLg 1'
-alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
-alias ethip="ipconfig getifaddr en0"
-alias wifiip="ipconfig getifaddr en1"
+# editing shortcuts
+alias edit-zsh="vim ~/dotfiles/zshrc"
+alias edit-vim="vim ~/dotfiles/vimrc"
+alias edit-git="vim ~/dotfiles/git/gitconfig"
+alias edit-aliases="vim ~/.system_aliases"
+alias edit-base-aliases="vim ~/dotfiles/aliases"
+alias re-source="source ~/.zshrc"
 
+# Misc. helpers
+alias fdev="foreman start"
+alias open-vlc="open -na /Applications/VLC.app"
+
+# OSX helpers
 alias hide-files="defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder"
 alias make-dock-space="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock"
 alias show-files="defaults write com.apple.Finder AppleShowAllFiles YES; killall Finder"
 
-alias edit-zsh="vim ~/.zshrc"
-alias re-source="source ~/.zshrc"
-alias edit-aliases="vim ~/.aliases"
-alias edit-system="vim ~/.system_aliases"
-
-alias fdev="foreman start"
-
-alias open-vlc="open -na /Applications/VLC.app"
+# IP helpers
+alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
+alias ethip="ipconfig getifaddr en0"
+alias wifiip="ipconfig getifaddr en1"
