@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# NOTE - handy devopsy cli tips at http://rubytune.com/cheat
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -24,9 +22,6 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -34,7 +29,7 @@ DISABLE_AUTO_UPDATE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -58,12 +53,12 @@ plugins=(
   git 
   vi-mode
   bundler
+  zsh-nvm
 )
 
 autoload -U compinit && compinit
 
 # User configuration
-
 source $ZSH/oh-my-zsh.sh
 
 export FZF_DEFAULT_COMMAND='fd --type file'
@@ -72,16 +67,6 @@ export EDITOR='vim'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -105,6 +90,3 @@ HOMEBREW_NO_ANALYTICS=1
 # Warning - the below path includes a potential security hazard in that it
 # includes './bin'
 export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:bin:/Applications/Postgres.app/Contents/Versions/latest/bin:./bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"
-
-# Use rbenv to manage ruby versions
-eval "$(rbenv init -)"
