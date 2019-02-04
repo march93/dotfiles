@@ -24,3 +24,7 @@ fi
 if [ ! -f ~/.gitignore ]; then
   ln -s ~/dotfiles/git/gitignore ~/.gitignore
 fi
+
+if [ ! -f ~/.vimrc ]; then
+  ln -s ~/dotfiles/vimrc ~/.vimrc
+fi
