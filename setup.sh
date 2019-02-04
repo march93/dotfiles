@@ -1,22 +1,26 @@
-brew install cask rbenv-gemset
+# Install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew tap heroku/brew
+brew install cask rbenv-gemset heroku git
+brew cask install iterm2 gitkraken spotify firefox google-chrome videostream
 
-# Only installing the things that my current job's `sh` file doesn't install for me
-brew cask install karabiner iterm2 trailer gitkraken atom spotify firefox
-
+mkdir ~/Projects
 touch ~/.gitconfig.user
-mkdir ~/Rails ~/Ember ~/Projects
+touch ~/.system_aliases
 
 # Setup aliases to dotfiles
-ln -s ~/.dotfiles/aprc .aprc
-ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/git/gitignore ~/.gitignore
-touch ~/.system_aliases
-ln -s ~/.dotfiles/aliases ~/.aliases
-ln -s ~/.dotfiles/zshrc ~/.zshrc
-rm -rf ~/Library/Application\ Support/Karabiner/private.xml
-ln -s ~/.dotfiles/karabiner/private.xml ~/Library/Application\ Support/Karabiner/private.xml
+if [ ! -f ~/.gitconfig ]; then
+  ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+fi
 
-mkdir ~/.atom
-rm -rf ~/.atom/keymap.cson
-ln -s ~/.dotfiles/atom/keymap.cson ~/.atom/keymap.cson
-apm install vim-mode file-icons block-comment aligner pigments tool-bar tool-bar-main selector-to-tag minimap minimap-bookmarks minimap-autohide hbs-beautify merge-conflicts file-icon-supplement docblockr sort-lines
+if [ ! -f ~/.aliases ]; then
+  ln -s ~/dotfiles/aliases ~/.aliases
+fi
+
+if [ ! -f ~/.zshrc ]; then
+  ln -s ~/dotfiles/zshrc ~/.zshrc
+fi
+
+if [ ! -f ~/.gitignore ]; then
+  ln -s ~/dotfiles/git/gitignore ~/.gitignore
+fi
