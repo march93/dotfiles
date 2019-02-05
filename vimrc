@@ -19,7 +19,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thaerkh/vim-indentguides'
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'
 Plug 'k0kubun/vim-open-github'
 
 Plug '/usr/local/opt/fzf'
@@ -52,6 +51,8 @@ Plug 'mattn/emmet-vim'
 
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+
+Plug 'ryanoasis/vim-devicons' " MUST be loaded last
 call plug#end()
 
 " START NERDTree stuff
