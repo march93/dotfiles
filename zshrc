@@ -89,4 +89,12 @@ HOMEBREW_NO_ANALYTICS=1
 
 # Warning - the below path includes a potential security hazard in that it
 # includes './bin'
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:bin:/Applications/Postgres.app/Contents/Versions/latest/bin:./bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"
+export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:bin:.gems/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:./bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
+eval "$(rbenv init -)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"

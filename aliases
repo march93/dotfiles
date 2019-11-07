@@ -7,7 +7,8 @@ alias edit-base-aliases="vim ~/dotfiles/aliases"
 alias re-source="source ~/.zshrc"
 
 # Misc. helpers
-alias fdev="foreman start"
+alias flocal="foreman start -f Procfile.local"
+alias start-sidekiq="bundle exec sidekiq -C config/sidekiq.yml"
 alias open-vlc="open -na /Applications/VLC.app"
 
 # OSX helpers

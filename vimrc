@@ -41,16 +41,21 @@ Plug 'ap/vim-css-color'
 Plug 'cakebaker/scss-syntax.vim'
 " Plug 'shmargum/vim-sass-colors' blows shit up all the time
 
-Plug 'heavenshell/vim-jsdoc'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale' " Asynchronous linting
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 
+Plug 'heavenshell/vim-jsdoc'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'mxw/vim-jsx'
+
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+
+Plug 'keith/rspec.vim'
+Plug 'thoughtbot/vim-rspec'
 
 Plug 'ryanoasis/vim-devicons' " MUST be loaded last
 call plug#end()
@@ -61,13 +66,11 @@ nmap ,r :NERDTreeFind<CR>
 nmap ,t :NERDTreeToggle<CR>
 " END NERDTree stuff
 
-nnoremap <leader>s :ToggleWorkspace<CR>
-
 " change panels
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
 
 " change tabs
 nmap <Space>j :tabr<CR>
@@ -75,7 +78,14 @@ nmap <Space>k :tabl<CR>
 nmap <Space>h :tabp<CR>
 nmap <Space>l :tabn<CR>
 
+" Misc helper functions
 nmap ,f :FZF<CR>
+nnoremap <leader>s :ToggleWorkspace<CR>
+
+" Rspec
+nmap <Space>spec :call RunCurrentSpecFile()<CR>
+let g:rspec_command = "!docker-compose -e 'RAILS_ENV=test' --rm web bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
 
 " Toggles between relative and absolute line numbers
 nmap ,n :ToggleNumRel<CR> 

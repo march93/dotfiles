@@ -25,11 +25,15 @@
 
   # Faves
   reset-master = !git co master && git fetch origin master && git reset --hard origin/master # checks out master and resets it to latest
-  kill-branch = "!f() { branch=$(git current); git reset-master; git b -D $branch; }; f" # kill the current branch and reset to latest master
+  reset-dev = !git co dev && git fetch origin dev && git reset --hard origin/dev # checks out dev and resets it to latest
+  reset-base = !git co mobile-api-refactor && git fetch origin mobile-api-refactor && git reset --hard origin/mobile-api-refactor # checks out dev and resets it to latest
+  kill = "!f() { branch=$(git current); git reset-master; git b -D $branch; }; f" # kill the current branch and reset to latest master
+  kill-to-base = "!f() { branch=$(git current); git reset-base; git b -D $branch; }; f" # kill the current branch and reset to latest base branch
   uncommit = reset --soft HEAD^     # remove the last commit, but keep the changes staged
   stuff = commit --amend -C HEAD    # Pushes your currently added changes into the previous commit
 
-  update = !git fetch origin master && git rebase origin/master # rebases your current branch on the latest master
+  update = !git fetch origin dev && git rebase origin/dev # rebases your current branch on the latest dev
+  master-update = !git fetch origin master && git rebase origin/master # rebases your current branch on the latest master
   force-up = !git push origin $(git current) -f # forces your current branch up to origin
   push-up = !git push origin $(git current) # pushes up your current branch to origin
 
@@ -44,7 +48,10 @@
   r = remote -v                     # show remotes (verbose)
 
 [format]
-  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(cyan bold)%s %C(magenta) [%an]%Creset
+
+[pager]
+  branch = false
 
 [mergetool]
   prompt = false
@@ -91,3 +98,11 @@
 
 [include]
   path = .gitconfig.user
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = Brandon J McKay
+	email = bmckay@tractionguest.com
