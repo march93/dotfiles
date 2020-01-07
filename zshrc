@@ -54,6 +54,7 @@ plugins=(
   vi-mode
   bundler
   zsh-nvm
+  zsh-autosuggestions
 )
 
 autoload -U compinit && compinit
@@ -87,9 +88,7 @@ export EDITOR='vim'
 #https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 HOMEBREW_NO_ANALYTICS=1
 
-# Warning - the below path includes a potential security hazard in that it
-# includes './bin'
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:bin:.gems/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:./bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin:/usr/sbin"
+# initi rbenv
 eval "$(rbenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
@@ -98,3 +97,20 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
+
+# Warning - the below path includes a potential security hazard in that it
+# includes './bin'
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="bin:$PATH"
+export PATH="./bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="$HOME/flutter/bin:$PATH"

@@ -26,8 +26,10 @@
   # Faves
   reset-master = !git co master && git fetch origin master && git reset --hard origin/master # checks out master and resets it to latest
   reset-dev = !git co dev && git fetch origin dev && git reset --hard origin/dev # checks out dev and resets it to latest
+  reset-this = "!f() { branch=$(git current); git fetch origin $branch; git reset --hard origin/$branch; }; f"
+  rebase-this = "!f() { branch=$(git current); git fetch origin $branch; git rebase origin/$branch; }; f"
   reset-base = !git co mobile-api-refactor && git fetch origin mobile-api-refactor && git reset --hard origin/mobile-api-refactor # checks out dev and resets it to latest
-  kill = "!f() { branch=$(git current); git reset-master; git b -D $branch; }; f" # kill the current branch and reset to latest master
+  kill = "!f() { branch=$(git current); git reset-dev; git b -D $branch; }; f" # kill the current branch and reset to latest dev
   kill-to-base = "!f() { branch=$(git current); git reset-base; git b -D $branch; }; f" # kill the current branch and reset to latest base branch
   uncommit = reset --soft HEAD^     # remove the last commit, but keep the changes staged
   stuff = commit --amend -C HEAD    # Pushes your currently added changes into the previous commit
@@ -79,7 +81,7 @@
 [core]
   autocrlf = false
   editor = vim
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 
 [advice]
   statusHints = false
