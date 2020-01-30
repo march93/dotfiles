@@ -34,5 +34,4 @@ fi
 # Install dependencies
 brew tap heroku/brew
 brew install cask rbenv-gemset heroku git fzf
-brew tap caskroom/fonts
-brew cask install iterm2 gitkraken spotify firefox google-chrome videostream font-hack-nerd-font
+brew cask install iterm2 spotify google-chrome 

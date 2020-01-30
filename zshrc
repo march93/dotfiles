@@ -1,13 +1,21 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="gozilla"
-# awesome: gozilla, theunraveler, terminalparty, wedisagree
-# interesting: fwalch, kolo, gentoo, nanotech, sorin, robbyrussell
+# Enable additional glyphs in Awesome-TerminalFont's special character set.
+# https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#option-3-install-awesome-powerline-fonts
+# POWERLEVEL9K_MODE='awesome-patched'
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# Powerlevel9k config.
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs background_jobs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uE1AA'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,6 +63,8 @@ plugins=(
   bundler
   zsh-nvm
   zsh-autosuggestions
+  zsh-completion
+  zsh-syntax-highlighting
 )
 
 autoload -U compinit && compinit
@@ -102,6 +112,7 @@ export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.vscode,.sass-cache,node_mo
 # includes './bin'
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="bin:$PATH"
 export PATH="./bin:$PATH"
@@ -113,4 +124,7 @@ export PATH="/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="$HOME/flutter/bin:$PATH"
+export PATH="$HOME/workspace/flutter/bin:$PATH"
+
+# Golang
+export GOPATH=$HOME/go

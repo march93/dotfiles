@@ -58,14 +58,18 @@
 [mergetool]
   prompt = false
 
-[mergetool "vimdiff"]
-  cmd="vim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
-  keepbackup=false
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [merge]
   summary = true
   verbosity = 1
   tool = mvimdiff
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 
 [apply]
   whitespace = nowarn
@@ -106,5 +110,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 [user]
-	name = Brandon J McKay
-	email = bmckay@tractionguest.com
+	name = march93
+	email = marc.ho380@gmail.com

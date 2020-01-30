@@ -9,7 +9,6 @@ alias re-source="source ~/.zshrc"
 # Misc. helpers
 alias flocal="foreman start -f Procfile.local"
 alias start-sidekiq="bundle exec sidekiq -C config/sidekiq.yml"
-alias open-vlc="open -na /Applications/VLC.app"
 
 # OSX helpers
 alias hide-files="defaults write com.apple.Finder AppleShowAllFiles NO; killall Finder"
